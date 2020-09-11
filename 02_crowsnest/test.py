@@ -27,7 +27,7 @@ def test_usage():
     """usage"""
 
     for flag in ['-h', '--help']:
-        rv, out = getstatusoutput(f'{prg} {flag}')
+        rv, out = getstatusoutput(f'python3 {prg} {flag}')
         assert rv == 0
         assert out.lower().startswith('usage')
 
@@ -37,7 +37,7 @@ def test_consonant():
     """brigantine -> a brigantine"""
 
     for word in consonant_words:
-        out = getoutput(f'{prg} {word}')
+        out = getoutput(f'python3 {prg} {word}')
         assert out.strip() == template.format('a', word)
 
 
@@ -46,8 +46,8 @@ def test_consonant_upper():
     """brigantine -> a Brigatine"""
 
     for word in consonant_words:
-        out = getoutput(f'{prg} {word.title()}')
-        assert out.strip() == template.format('a', word.title())
+        out = getoutput(f'python3 {prg} {word.title()}')
+        assert out.strip() == template.format('A', word.title())
 
 
 # --------------------------------------------------
@@ -55,7 +55,7 @@ def test_vowel():
     """octopus -> an octopus"""
 
     for word in vowel_words:
-        out = getoutput(f'{prg} {word}')
+        out = getoutput(f'python3 {prg} {word}')
         assert out.strip() == template.format('an', word)
 
 
@@ -64,5 +64,5 @@ def test_vowel_upper():
     """octopus -> an Octopus"""
 
     for word in vowel_words:
-        out = getoutput(f'{prg} {word.upper()}')
-        assert out.strip() == template.format('an', word.upper())
+        out = getoutput(f'python3 {prg} {word.upper()}')
+        assert out.strip() == template.format('An', word.upper())
