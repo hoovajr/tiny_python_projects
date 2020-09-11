@@ -19,7 +19,7 @@ def test_usage():
     """usage"""
 
     for flag in ['', '-h', '--help']:
-        out = getoutput(f'{prg} {flag}')
+        out = getoutput(f'python3 {prg} {flag}')
         assert out.lower().startswith('usage')
 
 
@@ -27,7 +27,7 @@ def test_usage():
 def test_one():
     """one item"""
 
-    out = getoutput(f'{prg} chips')
+    out = getoutput(f'python3 {prg} chips')
     assert out.strip() == 'You are bringing chips.'
 
 
@@ -44,7 +44,7 @@ def test_more_than_two():
     """more than two items"""
 
     arg = '"potato chips" coleslaw cupcakes "French silk pie"'
-    out = getoutput(f'{prg} {arg}')
+    out = getoutput(f'python3 {prg} {arg}')
     expected = ('You are bringing potato chips, coleslaw, '
                 'cupcakes, and French silk pie.')
     assert out.strip() == expected
@@ -54,7 +54,7 @@ def test_more_than_two():
 def test_two_sorted():
     """two items sorted output"""
 
-    out = getoutput(f'{prg} -s soda candy')
+    out = getoutput(f'python3 {prg} -s soda candy')
     assert out.strip() == 'You are bringing candy and soda.'
 
 
@@ -63,6 +63,6 @@ def test_more_than_two_sorted():
     """more than two items sorted output"""
 
     arg = 'bananas apples dates cherries'
-    out = getoutput(f'{prg} {arg} --sorted')
+    out = getoutput(f'python3 {prg} {arg} --sorted')
     expected = ('You are bringing apples, bananas, cherries, and dates.')
     assert out.strip() == expected
